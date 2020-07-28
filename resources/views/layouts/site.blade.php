@@ -15,15 +15,15 @@
     <title>Laravel</title>
 
 </head>
-<body>
-    <div id="app">
-        <header>
-            @include('layouts._site._nav')
-        </header>
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<body id="app-layout">
+
+    <header>
+        @include('layouts._site._nav')
+    </header>
+    <main class="py-4">
+        @yield('content')
+    </main>
+    
     
     <footer class="page-footer blue">
         <div class="container">
@@ -35,9 +35,9 @@
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Sobre</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Contato</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ route('site.home') }}">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ route('site.sobre') }}">Sobre</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ route('site.contato') }}">Contato</a></li>
                     </ul>
                 </div>
             </div>
