@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.sidenav').sidenav();
   $('.slider').slider({full_width:true});
+  $('select').formSelect();
 });
 
 function sliderPrev(){
