@@ -32,6 +32,7 @@ Route::get('/admin/login', ['as'=>'admin.login', function(){
 }]);
 Route::post('/admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UsuarioController@login']);
 Route::group(['Middleware'=>'auth'], function(){
+    Route::get('/admin/sair', ['as'=>'admin.login.sair', 'uses'=>'Admin\UsuarioController@sair']);
     Route::get('/admin', ['as'=>'admin.principal', function(){
         return view('admin.principal.index');
     }]);

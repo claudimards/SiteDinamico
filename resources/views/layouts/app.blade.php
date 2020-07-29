@@ -39,19 +39,21 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">SisAdmin</h5>
+                    <p class="grey-text text-lighten-4">Sistema de Administração</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="{{ route('site.home') }}">Site</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="{{ route('admin.principal') }}">Início</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="{{ route('site.home') }}">Site</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2020 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                © 2020 Copyright SisAdmin
+                <a class="grey-text text-lighten-4 right" href="#!">Claudimar dos Santos Bezerra</a>
             </div>
         </div>
     </footer>
