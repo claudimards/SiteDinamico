@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\User;
 
 class UsuarioController extends Controller
 {
@@ -32,5 +33,11 @@ class UsuarioController extends Controller
     {
         Auth::logout();
         return redirect(route('admin.login'));
+    }
+
+    public function index()
+    {
+        $usuarios = User::all();
+        return view('admin.usuarios.index', compact('usuarios'));
     }
 }

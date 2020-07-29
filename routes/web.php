@@ -30,10 +30,14 @@ Route::get('/imovel/{id}/{titulo?}', ['as'=>'site.imovel', function(){
 Route::get('/admin/login', ['as'=>'admin.login', function(){
     return view('admin.login.index');
 }]);
-Route::post('/admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UsuarioController@login']);
+Route::post('/admin/login', ['as'=>'admin.login', 
+    'uses'=>'Admin\UsuarioController@login']);
 Route::group(['Middleware'=>'auth'], function(){
-    Route::get('/admin/sair', ['as'=>'admin.login.sair', 'uses'=>'Admin\UsuarioController@sair']);
+    Route::get('/admin/sair', ['as'=>'admin.login.sair', 
+        'uses'=>'Admin\UsuarioController@sair']);
     Route::get('/admin', ['as'=>'admin.principal', function(){
         return view('admin.principal.index');
     }]);
+    Route::get('/admin/usuarios', ['as'=>'admin.usuarios', 
+        'uses'=>'Admin\UsuarioController@index']);
 });
