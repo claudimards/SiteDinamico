@@ -16,15 +16,12 @@
 
 </head>
 <body id="app-layout">
-
     <header>
         @include('layouts._site._nav')
     </header>
     <main class="py-4">
         @yield('content')
-    </main>
-    
-    
+    </main> 
     <footer class="page-footer blue">
         <div class="container">
             <div class="row">
