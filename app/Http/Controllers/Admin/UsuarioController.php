@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -39,5 +40,27 @@ class UsuarioController extends Controller
     {
         $usuarios = User::all();
         return view('admin.usuarios.index', compact('usuarios'));
+    }
+
+    public function adicionar()
+    {
+        return view('admin.usuarios.adicionar');
+    }
+
+    public function salvar(Request $request)
+    {
+        $dados = $request->all();
+        $usuario = new User();
+        $usuario->name = $dados['name'];
+        $usuario->email = $dados['email'];
+        $usuario->password = Hash::make($dados['password']);
+        $usuario->save();
+
+        Session::flash('mensagem', [
+            'msg'=>'Usuário cadastrado com sucesso!',
+            'class'=>'green white-text'
+        ]);
+
+        return redirect(route('admin.usuarios'));
     }
 }
