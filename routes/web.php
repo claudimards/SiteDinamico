@@ -49,4 +49,6 @@ Route::group(['Middleware'=>'auth'], function(){
         'uses'=>'Admin\UsuarioController@editar']);
     Route::put('/admin/usuarios/atualizar/{id}', ['as'=>'admin.usuarios.atualizar', 
         'uses'=>'Admin\UsuarioController@atualizar']);
+    Route::get('/admin/usuario/deletar/{id}', ['as'=>'admin.usuarios.deletar',
+        'uses'=>'Admin\UsuarioController@deletar']);
 });
