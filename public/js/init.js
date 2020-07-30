@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
   $('.slider').slider({full_width:true});
   $('select').formSelect();
+  $('.dropdown').dropdown();
 });
 
 function sliderPrev(){
