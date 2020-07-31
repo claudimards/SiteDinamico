@@ -14,12 +14,13 @@
             </nav>            
         </div>
         <div class="row">
-            <form action="{{ route('admin.paginas.atualizar', $pagina->id) }}" method="post">
+            <form action="{{ route('admin.paginas.atualizar', $pagina->id) }}" method="post" 
+                enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
                 @include('admin.paginas._form')
                 <button class="btn blue">Atualizar</button>
-                <a class="btn red" href="{{ route('admin.usuarios') }}">Cancelar</a>
+                <a class="btn red" href="{{ route('admin.paginas') }}">Cancelar</a>
             </form>
         </div>
     </div>
