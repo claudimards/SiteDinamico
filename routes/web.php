@@ -17,10 +17,9 @@ Route::get('/', ['as'=>'site.home', function(){
     return view('site.home');
 }]);
 Route::get('/sobre', ['as'=>'site.sobre', 'uses'=>'Site\PaginaController@sobre']);
-
-Route::get('/contato', ['as'=>'site.contato', function(){
-    return view('site.contato');
-}]);
+Route::get('/contato', ['as'=>'site.contato', 'uses'=>'Site\PaginaController@contato']);
+Route::post('contato/enviar', ['as'=>'site.contato.enviar', 
+    'uses'=>'Site\PaginaController@enviarContato']);
 
 Route::get('/imovel/{id}/{titulo?}', ['as'=>'site.imovel', function(){
     return view('site.imovel');

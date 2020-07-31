@@ -9,10 +9,21 @@
     </div>
     <div class="row section">
         <div class="col s12 m7">
-            <img class="responsive-img" src="{{ asset('img/modelo-img-home.bmp') }}" alt="">
+            @if(isset($pagina->mapa))
+            <div class="video-container">
+                {{!! $pagina->mapa !!}}
+            </div>
+            @else
+            <img class="responsive-img" src="{{ asset($pagina->imagem) }}" alt="">
+            @endif
         </div>
         <div class="col s12 m5">
-            <form class="col s12 ">
+            <h4>{{ $pagina->titulo }}</h4>
+            <blockquote>
+                {{ $pagina->descricao }}
+            </blockquote>
+            <form class="col s12 " action="{{ route('site.contato.enviar') }}" method="post">
+                {{ csrf_field() }}
                 <div class="input-field">
                     <input type="text" name="nome" class="validate">
                     <label for="nome">Nome</label>

@@ -35,5 +35,23 @@ class PaginasSeeds extends Seeder
             </iframe>';
         $paginaSobre->tipo = "sobre";
         $paginaSobre->save();
+        echo "Página sobre criada com sucesso!\n";
+
+        $existe = Pagina::where('tipo', '=', 'contato')->count();
+
+        if($existe){
+            $paginaContato = Pagina::where('tipo', '=', 'contato')->first();
+        }else{
+            $paginaContato = new Pagina();
+        }
+
+        $paginaContato->titulo = "Entre em contato";
+        $paginaContato->descricao = "Preencha o formulário";
+        $paginaContato->texto = "Contato";
+        $paginaContato->imagem = "img/modelo-img-home.bmp";
+        $paginaContato->email = "claudimards@gmail.com";
+        $paginaContato->tipo = "contato";
+        $paginaContato->save();
+        echo "Página contato criada com sucesso!\n";
     }
 }
