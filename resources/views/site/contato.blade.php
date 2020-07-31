@@ -33,7 +33,7 @@
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-field">
-                    <textarea class="materialize-textarea"></textarea>
+                    <textarea class="materialize-textarea" name="mensagem"></textarea>
                     <label>Mensagem</label>
                 </div>
                 <button class="btn blue">Enviar</button>
