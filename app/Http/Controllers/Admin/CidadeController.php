@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cidade;
 use Illuminate\Support\Facades\Session;
+use App\Imovel;
 
 
 class CidadeController extends Controller
@@ -63,6 +64,23 @@ class CidadeController extends Controller
 
     public function deletar($id)
     {
+
+        if(Imovel::where('cidade_id', '=', $id)->count()){
+            $msg = "Não é possivel deletar essa cidade! Esses imóveis (";
+            $imoveis = Imovel::where('cidade_id', '=', $id)->get();
+            foreach ($imoveis as $imovel) {
+                $msg.= "nome: ".$imovel->titulo.", ";
+            }
+            $msg.= ") estão relacionados.";
+
+            Session::flash('mensagem', [
+                'msg'=> $msg,
+                'class'=>'red white-text'
+            ]);
+    
+            return redirect(route('admin.cidades'));
+        }
+
         Cidade::find($id)->delete();
 
         Session::flash('mensagem', [

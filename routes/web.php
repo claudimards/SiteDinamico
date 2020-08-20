@@ -82,4 +82,17 @@ Route::group(['Middleware'=>'auth'], function(){
         'uses'=>'Admin\CidadeController@atualizar']);
     Route::get('/admin/cidades/deletar/{id}', ['as'=>'admin.cidades.deletar',
         'uses'=>'Admin\CidadeController@deletar']);
+
+    Route::get('/admin/imoveis', ['as'=>'admin.imoveis', 
+        'uses'=>'Admin\ImovelController@index']);
+    Route::get('/admin/imoveis/adicionar', ['as'=>'admin.imoveis.adicionar', 
+        'uses'=>'Admin\ImovelController@adicionar']);
+    Route::post('/admin/imoveis/salvar', ['as'=>'admin.imoveis.salvar', 
+        'uses'=>'Admin\ImovelController@salvar']);
+    Route::get('/admin/imoveis/editar/{id}', ['as'=>'admin.imoveis.editar', 
+        'uses'=>'Admin\ImovelController@editar']);
+    Route::put('/admin/imoveis/atualizar/{id}', ['as'=>'admin.imoveis.atualizar', 
+        'uses'=>'Admin\ImovelController@atualizar']);
+    Route::get('/admin/imoveis/deletar/{id}', ['as'=>'admin.imoveis.deletar',
+        'uses'=>'Admin\ImovelController@deletar']);
 });
