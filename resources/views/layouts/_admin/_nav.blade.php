@@ -14,6 +14,7 @@
                     </a></li>
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="#!">{{ Auth::user()->name }}</a></li>
+                    <li><a href="{{ route('admin.imoveis') }}">Imóveis</a></li>
                     <li><a href="{{ route('admin.tipos') }}">Tipos</a></li>
                     <li><a href="{{ route('admin.cidades') }}">Cidades</a></li>
                     <li><a href="{{ route('admin.usuarios') }}">Usuários</a></li>
@@ -30,6 +31,7 @@
                 <li><a href="{{ route('admin.login') }}">Login</a></li>
                 @else
                 <li><a href="#">{{ Auth::user()->name }}</a></li>
+                <li><a href="{{ route('admin.imoveis') }}">Imóveis</a></li>
                 <li><a href="{{ route('admin.tipos') }}">Tipos</a></li>
                 <li><a href="{{ route('admin.cidades') }}">Cidades</a></li>
                 <li><a href="{{ route('admin.usuarios') }}">Usuários</a></li>
