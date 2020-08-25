@@ -12,7 +12,7 @@
 </div>
 <div class="input-field">
     <input type="text" name="ordem" class="validate" 
-        value="{{ isset($registro->descricao) ? $registro->ordem : '' }}">
+        value="{{ isset($registro->ordem) ? $registro->ordem : '' }}">
     <label>Ordem</label>
 </div>
 <div class="row">
