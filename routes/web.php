@@ -13,23 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['as'=>'site.home', function(){
-    return view('site.home');
-}]);
+Route::get('/', ['as'=>'site.home', 'uses'=>'Site\HomeController@index']);
 Route::get('/sobre', ['as'=>'site.sobre', 'uses'=>'Site\PaginaController@sobre']);
 Route::get('/contato', ['as'=>'site.contato', 'uses'=>'Site\PaginaController@contato']);
 Route::post('contato/enviar', ['as'=>'site.contato.enviar', 
     'uses'=>'Site\PaginaController@enviarContato']);
 
-Route::get('/imovel/{id}/{titulo?}', ['as'=>'site.imovel', function(){
-    return view('site.imovel');
-}]);
+Route::get('/imovel/{id}/{titulo?}', ['as'=>'site.imovel', 'uses'=>'Site\ImovelController@index']);
 
 Route::get('/admin/login', ['as'=>'admin.login', function(){
     return view('admin.login.index');
 }]);
 Route::post('/admin/login', ['as'=>'admin.login', 
     'uses'=>'Admin\UsuarioController@login']);
+
 Route::group(['Middleware'=>'auth'], function(){
     Route::get('/admin/sair', ['as'=>'admin.login.sair', 
         'uses'=>'Admin\UsuarioController@sair']);

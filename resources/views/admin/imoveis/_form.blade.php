@@ -43,12 +43,12 @@
     </select>
     <label for="tipo_id">Tipo do Imóvel</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <input type="text" name="endereco" class="validate"
         value="{{ (isset($registro->endereco) ? $registro->endereco : '') }}">
     <label for="endereco">Endereço</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <input type="text" name="cep" class="validate"
         value="{{ (isset($registro->cep) ? $registro->cep : '') }}">
     <label for="cep">CEP (Ex: XXXXX-XXX)</label>
@@ -63,22 +63,22 @@
     </select>
     <label for="cidade_id">Cidade</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <input type="text" name="valor" class="validate"
         value="{{ (isset($registro->valor) ? $registro->valor : '') }}">
     <label for="valor">Valor (Ex: 234.90)</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <input type="text" name="dormitorios" class="validate"
         value="{{ (isset($registro->dormitorios) ? $registro->dormitorios : '') }}">
     <label for="dormitorios">Dormitórios (Ex: 3)</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <input type="text" name="detalhes" class="validate"
         value="{{ (isset($registro->detalhes) ? $registro->detalhes: '') }}">
     <label for="detalhes">Detalhes</label>
 </div>
-<div class="input-field">
+<div class="input-field col s12">
     <textarea name="mapa" class="materialize-textarea">
         {{ (isset($registro->mapa) ? $registro->mapa : '') }}
     </textarea>
