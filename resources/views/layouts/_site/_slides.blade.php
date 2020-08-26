@@ -1,25 +1,16 @@
 <div class="slider">
     <ul class="slides">
-        <li>
-            <img src="{{ asset('img/modelo-slide-01.bmp') }}" alt="">
+        @foreach($slides as $slide)
+        <li onclick="window.location='{{ $slide->link }}'">
+            <img src="{{ asset($slide->imagem) }}" alt="{{ $slide->titulo }}">
             <div class="caption center-align">
-                <h3>Título da Imagem</h3>
-                <h5>Descrição do Slide</h5>
+                <h3>{{ $slide->titulo }}</h3>
+                <h5>{{ $slide->descricao }}</h5>
+                @if($slide->link != null)
+                <a href="{{ $slide->link }}" class="btn btn-large blue">mais...</a>
+                @endif
             </div>
         </li>
-        <li>
-            <img src="{{ asset('img/modelo-slide-02.bmp') }}" alt="">
-            <div class="caption center-align">
-                <h3>Título da Imagem</h3>
-                <h5>Descrição da Imagem</h5>
-            </div>
-        </li>
-        <li>
-            <img src="{{ asset('img/modelo-slide-03.bmp') }}" alt="">
-            <div class="caption center-align">
-                <h3>Título da Imagem</h3>
-                <h5>Descrição da Imagem</h5>
-            </div>
-        </li>
+        @endforeach
     </ul>
 </div>
