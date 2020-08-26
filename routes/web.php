@@ -21,6 +21,8 @@ Route::post('contato/enviar', ['as'=>'site.contato.enviar',
 
 Route::get('/imovel/{id}/{titulo?}', ['as'=>'site.imovel', 'uses'=>'Site\ImovelController@index']);
 
+Route::get('/busca', ['as'=>'site.busca', 'uses'=>'Site\HomeController@busca']);
+
 Route::get('/admin/login', ['as'=>'admin.login', function(){
     return view('admin.login.index');
 }]);

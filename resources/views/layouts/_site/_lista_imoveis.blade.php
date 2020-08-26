@@ -27,6 +27,8 @@
     @endforeach
 
 </div>
+@if($paginacao)
 <div class="row section pagination">
     {{ $imoveis->links() }}
 </div>
+@endif
