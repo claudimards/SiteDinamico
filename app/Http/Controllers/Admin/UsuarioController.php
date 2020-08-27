@@ -39,6 +39,12 @@ class UsuarioController extends Controller
 
     public function index()
     {
+        /* if(auth()->user()->can('listar-usuarios', false)){
+            dd('sim');
+        }else{
+            dd('nao');
+        } */
+
         $usuarios = User::all();
         return view('admin.usuarios.index', compact('usuarios'));
     }

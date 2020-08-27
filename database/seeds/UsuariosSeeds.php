@@ -13,10 +13,18 @@ class UsuariosSeeds extends Seeder
      */
     public function run()
     {
-        $usuario = new User();
-        $usuario->name = "Claudimar Bezerra";
-        $usuario->email = "admin@mail.com";
-        $usuario->password = Hash::make('123456');
-        $usuario->save();
+        if(User::where('email', '=', 'admin@mail.com')->count()){
+            $usuario = User::where('email', '=', 'admin@mail.com')->first();
+            $usuario->name = "Claudimar Bezerra";
+            $usuario->email = "admin@mail.com";
+            $usuario->password = Hash::make('123456');
+            $usuario->save();
+        }else{
+            $usuario = new User();
+            $usuario->name = "Claudimar Bezerra";
+            $usuario->email = "admin@mail.com";
+            $usuario->password = Hash::make('123456');
+            $usuario->save();
+        }
     }
 }
