@@ -34,7 +34,9 @@
                             @else
                             <a class="btn orange disabled">Editar</a>
                             @endif
-
+                            
+                            <a class="btn green" href="{{ route('admin.papel.permissao', $registro->id) }}">Permissão</a>
+                            
                             @if($registro->nome != 'admin')
                             <a class="btn red" href="javascript: if(confirm('Deletar esse registro?')){
                                 window.location.href = '{{ route('admin.papel.deletar', $registro->id) }}'
