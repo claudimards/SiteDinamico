@@ -42,7 +42,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Papel::class);
     }
 
-    public function adionarPapel($papel)
+    public function adicionarPapel($papel)
     {
         if(is_string($papel)){
             return $this->papeis()->save(

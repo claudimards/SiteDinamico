@@ -115,7 +115,7 @@ class UsuarioController extends Controller
         $papel = Papel::find($dados['papel_id']);
         $usuario->adicionarPapel($papel);
 
-        return redirect(back());
+        return redirect()->back();
     }
 
     public function removerPapel($id, $papel_id)
@@ -124,6 +124,6 @@ class UsuarioController extends Controller
         $papel = Papel::find($papel_id);
         $usuario->removePapel($papel);
 
-        return redirect(back());
+        return redirect()->back();
     }
 }
