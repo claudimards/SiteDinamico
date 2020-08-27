@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Papel;
 
 class UsuarioController extends Controller
 {
@@ -97,5 +98,32 @@ class UsuarioController extends Controller
             'class'=>'red white-text'
         ]);
         return redirect(route('admin.usuarios'));
+    }
+
+    public function papel($id)
+    {
+        $usuario = User::find($id);
+        $papel = Papel::all();
+
+        return view('admin.usuarios.papel', compact('usuario', 'papel'));
+    }
+
+    public function salvarPapel(Request $request, $id)
+    {
+        $usuario = User::find($id);
+        $dados = $request->all();
+        $papel = Papel::find($dados['papel_id']);
+        $usuario->adicionarPapel($papel);
+
+        return redirect(back());
+    }
+
+    public function removerPapel($id, $papel_id)
+    {
+        $usuario = User::find($id);
+        $papel = Papel::find($papel_id);
+        $usuario->removePapel($papel);
+
+        return redirect(back());
     }
 }

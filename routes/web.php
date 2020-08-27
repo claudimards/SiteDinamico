@@ -49,6 +49,13 @@ Route::group(['Middleware'=>'auth'], function(){
     Route::get('/admin/usuario/deletar/{id}', ['as'=>'admin.usuarios.deletar',
         'uses'=>'Admin\UsuarioController@deletar']);
 
+    Route::get('/admin/usuarios/papel/{id}', ['as'=>'admin.usuarios.papel', 
+      'uses'=>'Admin\UsuarioController@papel']);
+    Route::post('/admin/usuarios/papel/salvar/{id}', ['as'=>'admin.usuarios.papel.salvar', 
+      'uses'=>'Admin\UsuarioController@salvarPapel']);
+    Route::get('/admin/usuarios/papel/remover/{id}/{papel_id}', ['as'=>'admin.usuarios.papel.remover', 
+    'uses'=>'Admin\UsuarioController@removerPapel']);
+
     Route::get('/admin/paginas', ['as'=>'admin.paginas', 
         'uses'=>'Admin\PaginaController@index']);
     Route::get('/admin/paginas/editar/{id}', ['as'=>'admin.paginas.editar',
