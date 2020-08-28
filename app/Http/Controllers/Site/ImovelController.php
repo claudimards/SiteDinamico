@@ -13,6 +13,13 @@ class ImovelController extends Controller
         $imovel = Imovel::find($id);
         $galeria = $imovel->galeria()->orderBy('ordem')->get();
 
-        return view('site.imovel', compact('imovel', 'galeria'));
+        $seo = [
+            'titulo' => $imovel->titulo,
+            'descricao' => $imovel->descricao,
+            'imagem' => asset($imovel->imagem),
+            'url' => route('site.imovel', [$imovel->id, str_replace(' ', '_', $imovel->titulo)])
+        ];
+
+        return view('site.imovel', compact('imovel', 'galeria', 'seo'));
     }
 }
