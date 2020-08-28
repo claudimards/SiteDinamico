@@ -29,21 +29,25 @@
                         <td>{{ $registro->nome }}</td>
                         <td>{{ $registro->descricao }}</td>
                         <td>
-                            @if($registro->nome != 'admin')
-                            <a class="btn orange" href="{{ route('admin.papel.editar', $registro->id) }}">Editar</a>
-                            @else
-                            <a class="btn orange disabled">Editar</a>
-                            @endif
+                            @can('papel_editar')
+                                @if($registro->nome != 'admin')
+                                <a class="btn orange" href="{{ route('admin.papel.editar', $registro->id) }}">Editar</a>
+                                <a class="btn blue" href="{{ route('admin.papel.permissao', $registro->id) }}">Permissão</a>
+                                @else
+                                <a class="btn orange disabled">Editar</a>
+                                <a class="btn blue disabled">Permissão</a>
+                                @endif
+                            @endcan
                             
-                            <a class="btn green" href="{{ route('admin.papel.permissao', $registro->id) }}">Permissão</a>
-                            
-                            @if($registro->nome != 'admin')
-                            <a class="btn red" href="javascript: if(confirm('Deletar esse registro?')){
-                                window.location.href = '{{ route('admin.papel.deletar', $registro->id) }}'
-                            }">Deletar</a>
-                            @else
-                            <a class="btn orange disabled">Deletar</a>
-                            @endif
+                            @can('papel_deletar')
+                                @if($registro->nome != 'admin')
+                                <a class="btn red" href="javascript: if(confirm('Deletar esse registro?')){
+                                    window.location.href = '{{ route('admin.papel.deletar', $registro->id) }}'
+                                }">Deletar</a>
+                                @else
+                                <a class="btn orange disabled">Deletar</a>
+                                @endif
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
